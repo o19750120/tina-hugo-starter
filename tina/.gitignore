@@ -1,1 +1,4 @@
-__generated__
+public
+.hugo_build.lock
+.idea
+.DS_Store

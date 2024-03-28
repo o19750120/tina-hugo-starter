@@ -1,0 +1,225 @@
+baseURL: https://liuanyublog.onflashdrive.app/ # 綁定的域名
+languageCode: zh # en-us
+title: Oliver Liu
+theme: hugo-PaperMod # 主題名字，和themes文件夾下的一致
+
+enableInlineShortcodes: true
+enableEmoji: true # 允許使用 Emoji 表情，建議 true
+enableRobotsTXT: true # 允許爬蟲抓取到搜索引擎，建議 true
+hasCJKLanguage: true # 自動檢測是否包含 中文日文韓文 如果文章中使用了很多中文引號的話可以開啟
+
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+
+googleAnalytics: # 谷歌統計
+# Copyright: Sulv
+
+paginate: 15 # 首頁每頁顯示的文章數
+summaryLength: 140 # 文章概覽的自字數，默認70
+
+minify:
+    disableXML: true
+    # minifyOutput: true
+
+permalinks: # 訪問博客時網址的顯示形式
+    post: "/:title/"
+    # post: "/:year/:month/:day/:title/"
+
+defaultContentLanguage: zh # 最頂部首先展示的語言頁面
+defaultContentLanguageInSubdir: false
+
+menu:
+    main:
+        - identifier: search
+          name: 搜索
+          url: search
+          weight: 1
+        - identifier: home
+          name: 主頁
+          url: /
+          weight: 2
+        - identifier: posts
+          name: 文章
+          url: posts
+          weight: 3
+        - identifier: tags
+          name: 標簽
+          url: tags
+          weight: 4
+        - identifier: archives
+          name: 時間軸
+          url: archives/
+          weight: 5
+        - identifier: about
+          name: 關於
+          url: about
+          weight: 6
+        - identifier: tools
+          name: 工具
+          url: https://python-tools.streamlit.app/
+          weight: 7
+outputs:
+    home:
+        - HTML
+        - RSS
+        - JSON
+
+# 這里的參數會被代碼以 .Site.Params 的形式讀取
+params:
+    env: production # to enable google analytics, opengraph, twitter-cards and schema.
+    description: ""
+    author: Oliver Liu
+    # author: ["Me", "You"] # multiple authors
+
+    defaultTheme: auto # defaultTheme: light or  dark
+    disableThemeToggle: false
+    DateFormat: "2006-01-02"
+    ShowShareButtons: true
+    ShowReadingTime: false
+    # disableSpecialistPost: true
+    displayFullLangName: true
+    ShowPostNavLinks: true
+    ShowBreadCrumbs: true
+    ShowCodeCopyButtons: true
+    hideFooter: false # 隱藏頁腳
+    ShowWordCounts: false
+    VisitCount: false
+    ShowLastMod: false #顯示文章更新時間
+
+    ShowToc: true # 顯示目錄
+    TocOpen: true # 自動展開目錄
+
+    extendCodeBackground: false # 代碼塊是否自動橫向展開
+
+    comments: false
+
+    homeInfoParams:
+        Title: Oliver Liu
+        Content: 👇聯絡方式
+
+    # profileMode:
+    #     enabled: true
+    #     title: (〃'▽'〃)
+    #     subtitle:
+    #     # subtitle: "🧨學而時習之，不亦說乎？有朋自遠方來，不亦樂乎？<br/>👇聯系方式"
+    #     imageUrl: "img/Q.jpg"
+    #     imageTitle:
+    #     imageWidth: 150
+    #     imageHeight: 150
+    #     buttons:
+    #         - name: 🧱 建站
+    #           url: posts/blog
+    #         - name: 👨🏻‍💻 技術
+    #           url: posts/tech
+    #         - name: 📕 閱讀
+    #           url: posts/read
+    #         - name: 🏖 生活
+    #           url: posts/life
+
+    socialIcons:
+        - name: github
+          url: "https://github.com/o19750120"
+        - name: instagram
+          url: "https://www.instagram.com/locc.yoyo4/"
+        - name: email
+          url: "mailto:liuay0125@gmail.com"
+        - name: RSS
+          url: "index.xml"
+
+    label: # 左上角圖標
+        text: "Oliver Liu"
+        icon: "img/Q.jpg"
+        iconHeight: 35
+
+    analytics:
+        google:
+            SiteVerificationTag: ""
+
+    assets:
+        favicon: "img/Q.jpg"
+        favicon16x16: "img/Q.jpg"
+        favicon32x32: "img/Q.jpg"
+        apple_touch_icon: "img/Q.jpg"
+        safari_pinned_tab: "img/Q.jpg"
+        disableFingerprinting: true # 禁用指紋
+
+    cover:
+        hidden: false # hide everywhere but not in structured data
+        hiddenInList: false # hide on list pages and home
+        hiddenInSingle: false # hide on single page
+
+    fuseOpts: # 搜索配置
+        isCaseSensitive: false
+        shouldSort: true
+        location: 0
+        distance: 1000
+        threshold: 0.4
+        minMatchCharLength: 0
+        keys: ["title", "permalink", "summary"]
+
+    StartYear: 2024 # 底部開始年份
+
+    Reward: true #打賞是否開啟
+    # 打賞微信圖片地址，
+    # 可用絕對和相對地址，相對地址的圖片需放在static/img下，
+    # 填寫格式為img/wechat_pay.png
+    WechatPay: img/wechat_pay.png
+    Alipay: img/alipay.png #打賞支付寶圖片地址
+
+    # twikoo評論
+    twikoo:
+        version: 1.5.8 # 填寫twikoo版本號
+        id: # 填寫自己的twikoo id
+        region: # 環境地域，默認為 ap-shanghai，如果您的環境地域不是上海，需傳此參數，請看twikoo官方文檔
+
+taxonomies:
+    category: categories
+    tag: tags
+    series: series
+
+markup:
+    goldmark:
+        renderer:
+            unsafe: true # HUGO 默認轉義 Markdown 文件中的 HTML 代碼，如需開啟的話
+    highlight:
+        # anchorLineNos: true
+        codeFences: true
+        guessSyntax: true
+        # lineNos: true
+        noClasses: true
+        tabWidth: 4
+        style: monokai
+        # codeFences：代碼圍欄功能，這個功能一般都要設為 true 的，不然很難看，就是幹巴巴的-代碼文字，沒有顏色。
+        # guessSyntax：猜測語法，這個功能建議設置為 true, 如果你沒有設置要顯示的語言則會自動匹配。
+        # hl_Lines：高亮的行號，一般這個不設置，因為每個代碼塊我們可能希望讓高亮的地方不一樣。
+        # lineNoStart：行號從編號幾開始，一般從 1 開始。
+        # lineNos：是否顯示行號，我比較喜歡顯示，所以我設置的為 true.
+        # lineNumbersInTable：使用表來格式化行號和代碼,而不是 標簽。這個屬性一般設置為 true.
+        # noClasses：使用 class 標簽，而不是內嵌的內聯樣式
+
+privacy:
+    vimeo:
+        disabled: false
+        simple: true
+
+    twitter:
+        disabled: false
+        enableDNT: true
+        simple: true
+
+    instagram:
+        disabled: false
+        simple: true
+
+    youtube:
+        disabled: false
+        privacyEnhanced: true
+
+services:
+    instagram:
+        disableInlineCSS: true
+    twitter:
+        disableInlineCSS: true
+    googleAnalytics:
+        ID: G-LEMEW100LK
